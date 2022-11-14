@@ -277,6 +277,13 @@ isS
 grep -e "[0-9]" test1 test2 -e "[0-9]" test1 test2 > 2
 DIFF_RES="$(diff -s 1 2)"
 isS
+
+./s21_grep "[0-9]" test1 -n > 1 
+grep "[0-9]" test1 -n > 2
+DIFF_RES="$(diff -s 1 2)"
+isS
+
+
 echo "-------------------"
 echo "-------------------"
 echo "Total: $COUNT"

@@ -5,7 +5,9 @@ int parcer(int argc, char **argv, opt *Options) {
   int flag = 1;
   int res;
   int needOpt = 1;
-  while ((res = getopt(argc, argv, optstr)) != -1) {
+  int optionIndex = 0;
+  const struct option arr[] = {{NULL, 0, NULL, 0}};
+  while ((res = getopt_long(argc, argv, optstr, arr, &optionIndex)) != -1) {
     Options->e = 1;
     needOpt = 0;
     switch (res) {
@@ -100,6 +102,7 @@ int reader(opt Options, char *pattern, char *file) {
       resSearch = regexec(&reegex, str, 0, NULL, 0);
 
       if (Options.i) {
+        regfree(&reegex);
         regcomp(&reegex, pattern, REG_ICASE);
         resSearch = regexec(&reegex, str, 0, NULL, 0);
       }
@@ -161,7 +164,7 @@ int reader(opt Options, char *pattern, char *file) {
     }
     fclose(f);
   }
-  fclose(f);
+
   regfree(&reegex);
   return 1;
 }

@@ -1,0 +1,13 @@
+s21_grep.c:#include "s21_grep_lib.h"
+s21_grep.c:
+s21_grep.c:int main(int argc, char *argv[]) {
+s21_grep.c:  // int index = 0;
+s21_grep.c:  // int flagForFirst = 1;
+s21_grep.c:  opt Options = {0};
+s21_grep.c:  parcer(argc, argv, &Options);
+s21_grep.c:  char *pattern = argv[optind];
+s21_grep.c:  while (optind < argc) {
+s21_grep.c:    reader(Options, pattern, argv[optind]);
+s21_grep.c:    optind++;
+s21_grep.c:  }
+s21_grep.c:}
