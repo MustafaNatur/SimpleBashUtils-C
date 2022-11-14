@@ -11,55 +11,55 @@ int parser(int argc, char *argv[], opt *Options) {
   while ((rez = getopt_long(argc, argv, "+vbenstET", arr, &optionIndex)) !=
          -1) {
     switch (rez) {
-    case 'v': {
-      Options->v = 1;
-      break;
-    };
+      case 'v': {
+        Options->v = 1;
+        break;
+      };
 
-    case 'b': {
-      Options->b = 1;
-      break;
-    };
+      case 'b': {
+        Options->b = 1;
+        break;
+      };
 
-    case 'e': {
-      Options->e = 1;
-      Options->v = 1;
-      break;
-    };
+      case 'e': {
+        Options->e = 1;
+        Options->v = 1;
+        break;
+      };
 
-    case 'n': {
-      Options->n = 1;
-      break;
-    };
+      case 'n': {
+        Options->n = 1;
+        break;
+      };
 
-    case 's': {
-      Options->s = 1;
-      break;
-    };
+      case 's': {
+        Options->s = 1;
+        break;
+      };
 
-    case 't': {
-      Options->t = 1;
-      Options->v = 1;
-      break;
-    }
+      case 't': {
+        Options->t = 1;
+        Options->v = 1;
+        break;
+      }
 
-    case 'E': {
-      Options->E = 1;
-      Options->v = 0;
-      break;
-    };
+      case 'E': {
+        Options->E = 1;
+        Options->v = 0;
+        break;
+      };
 
-    case 'T': {
-      Options->T = 1;
-      Options->v = 0;
-      break;
-    };
+      case 'T': {
+        Options->T = 1;
+        Options->v = 0;
+        break;
+      };
 
-    case '?':
-    default: {
-      flag = rez;
-      break;
-    };
+      case '?':
+      default: {
+        flag = rez;
+        break;
+      };
     }
   }
   return flag;
