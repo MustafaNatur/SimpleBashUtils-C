@@ -1,5 +1,5 @@
 #include "s21_grep_lib.h"
-static const char *optstr = "e:f:ivclnhsfo";
+static const char *optstr = "ef:ivclnhsfo";
 
 int parcer(int argc, char **argv, opt *Options) {
   int flag = 1;
@@ -143,7 +143,11 @@ int reader(opt Options, char *pattern, char *file) {
     }
 
     if (Options.c && Options.l) {
-      counter = 1;
+      if (counter == 0) {
+        counter = 0;
+      } else {
+        counter = 1;
+      }
       if (Options.notOneFile) {
         printf("%s:%d\n", file, counter);
       } else {

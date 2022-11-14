@@ -22,8 +22,8 @@ grep "[0-9]" test1 > 2
 DIFF_RES="$(diff -s 1 2)"
 isS
 
-./s21_grep -e "19" test1 > 1 
-grep -e "19" test1 > 2
+./s21_grep -e "[0-9]" test1 > 1 
+grep -e "[0-9]" test1 > 2
 DIFF_RES="$(diff -s 1 2)"
 isS
 
@@ -257,6 +257,26 @@ grep -ncl "[0-9]" test1 > 2
 DIFF_RES="$(diff -s 1 2)"
 isS
 
+./s21_grep -l "[0-9]" test1 test2> 1 
+grep -l "[0-9]" test1 test2> 2
+DIFF_RES="$(diff -s 1 2)"
+isS
+
+./s21_grep -c "[0-9]" test1 test2 > 1 
+grep -c "[0-9]" test1 test2> 2
+DIFF_RES="$(diff -s 1 2)"
+isS
+
+./s21_grep -lc "[0-9]" test1 test2> 1 
+grep -lc "[0-9]" test1 test2> 2
+DIFF_RES="$(diff -s 1 2)"
+isS
+
+
+./s21_grep -e "[0-9]" test1 test2 -e "[0-9]" test1 test2> 1 
+grep -e "[0-9]" test1 test2 -e "[0-9]" test1 test2 > 2
+DIFF_RES="$(diff -s 1 2)"
+isS
 echo "-------------------"
 echo "-------------------"
 echo "Total: $COUNT"
